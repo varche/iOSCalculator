@@ -4,6 +4,12 @@ class HistoryViewController : UIViewController {
     
     @IBOutlet weak var historyTableView: UITableView!
     let historyItems = Array(HistoryStorage.sharedInstance.history.reversed())
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        navigationController?.setNavigationBarHidden(false, animated: animated)
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         historyTableView.delegate = self
